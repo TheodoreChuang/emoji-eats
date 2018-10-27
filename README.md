@@ -1,4 +1,5 @@
 React Workshop by Jes at https://github.com/saussayjesica/emoji-eats
+
 Node Workshop for NodeSchoolSydney and Vito
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
