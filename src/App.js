@@ -3,13 +3,20 @@ import './App.css';
 import Header from './components/Header';
 import MenuItem from './components/MenuItem';
 import Order from './components/Order';
-import { menuData } from './data/menuData';
+// import { menuData } from './data/menuData';
 
 class App extends Component {
   state = {
+    data: [],
     order: [],
     total: 0
   };
+
+  async componentDidMount() {
+    const response = await fetch('http://localhost:4000')  // get res/data from Node server
+    const { data } = await response.json()
+    this.setState({ data })
+  }
 
   handleUpdate = (name, price) => {
     const newItem = { name, price };
@@ -37,14 +44,15 @@ class App extends Component {
   };
 
   render() {
-    const { order, total } = this.state;
+    const { order, total, data } = this.state;
     return (
       <div className="App">
         <Header />
         <div className="menu">
           <div className="menuitems">
-            {menuData.map(item => (
+            {data.length > 0 && data.map((item, i) => (
               <MenuItem
+                key={i} // keys required for react when iterating
                 updateOrder={this.handleUpdate}
                 emoji={item.emoji}
                 name={item.name}

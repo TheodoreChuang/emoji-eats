@@ -5,9 +5,7 @@ const MenuItem = ({ emoji, label, name, description, price, updateOrder }) => {
   return (
     <div className="menuitem__wrapper">
       <div>
-        <span role="img" aria-label={label} className="menuitem__emoji">
-          {emoji}
-        </span>
+        <span role="img" aria-label={label} className="menuitem__emoji">{emoji}</span>
       </div>
       <div className="menuitem__column">
         <div className="menuitem__name">{name}</div>
@@ -16,10 +14,7 @@ const MenuItem = ({ emoji, label, name, description, price, updateOrder }) => {
           add to order
         </button>
       </div>
-      <div className="menuitem__price">
-        ${price}
-        .00
-      </div>
+      <div className="menuitem__price">${price}.00</div>
     </div>
   );
 };
